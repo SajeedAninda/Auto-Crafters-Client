@@ -16,7 +16,7 @@ const BrandIntro = () => {
         <div className='introBg'>
             <div className='w-[90%] mx-auto'>
                 <div>
-                    <h1 className='text-4xl py-6 text-center text-[#111230] font-bold'>Brand Introduction</h1>
+                    <h1 className='text-5xl pt-12 pb-6 text-center text-[#111230] font-bold'>Brand Introduction</h1>
                 </div>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                     <SwiperSlide>
