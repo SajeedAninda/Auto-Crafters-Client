@@ -6,12 +6,14 @@ const Navbar = () => {
     return (
         <div className='h-[15vh] bg-[#111230] flex items-center'>
             <div className='flex justify-between items-center w-[90%] mx-auto'>
-                <Link to={"/"}>
-                    <div className='flex items-center flex-1'>
-                        <img className='w-[75px]' src={logo} alt="" />
-                        <h5 className='font-bold text-xl text-white'>Auto Crafters</h5>
-                    </div>
-                </Link>
+                <div className='flex items-center flex-1'>
+                    <Link>
+                        <div className='flex items-center flex-1'>
+                            <img className='w-[75px]' src={logo} alt="" />
+                            <h5 className='font-bold text-xl text-white'>Auto Crafters</h5>
+                        </div>
+                    </Link>
+                </div>
 
                 <div className='text-white text-xl flex items-center justify-evenly gap-6 flex-1'>
                     <NavLink

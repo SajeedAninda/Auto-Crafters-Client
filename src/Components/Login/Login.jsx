@@ -4,7 +4,7 @@ import "./login.css"
 
 const Login = () => {
 
-    const handleSubmit = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
         let email = e.target.email.value;
         let password = e.target.password.value;
@@ -73,7 +73,7 @@ const Login = () => {
                             </h1>
 
 
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleLogin}>
                                 <div className="w-full flex-1 mt-8">
                                     <div className="flex flex-col items-center">
                                         <input
