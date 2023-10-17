@@ -8,7 +8,7 @@ const auth = getAuth(app);
 
 
 const Register = () => {
-    let { signUp } = useContext(AuthContext);
+    let { signUp, logOut } = useContext(AuthContext);
     let navigate = useNavigate();
 
     let handleRegister = (e) => {
@@ -46,6 +46,12 @@ const Register = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: imgurl
                 }).then(() => {
+                    logOut()
+                        .then(() => {
+                            console.log("Logged out after sign up");
+                        }).catch((error) => {
+                            console.log(error);
+                        });
                     Swal.fire(
                         'Registration Successful!',
                         'Please Login Now with Email & Password',
