@@ -1,8 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAuth, updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
+import { app } from '../Authentication/firebase.init';
+import { AuthContext } from '../Authentication/AuthenticationProvider';
+const auth = getAuth(app);
 
 
 const Register = () => {
+    let { signUp } = useContext(AuthContext);
+    let navigate = useNavigate();
 
     let handleRegister = (e) => {
         e.preventDefault();
@@ -10,7 +17,57 @@ const Register = () => {
         let email = e.target.email.value;
         let password = e.target.password.value;
         let imgurl = e.target.imgurl.value;
-        console.log(name, email, password, imgurl);
+
+        if (password.length < 6) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password Length should atleast be 6 Characters!'
+            })
+        }
+
+        if (!/[A-Z]/.test(password)) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password should contain at least one capital letter!'
+            })
+        }
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password should contain at least one special character!'
+            })
+        }
+        signUp(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: imgurl
+                }).then(() => {
+                    Swal.fire(
+                        'Registration Successful!',
+                        'Please Login Now with Email & Password',
+                        'success'
+                    )
+                }).catch((error) => {
+                    console.log(error);
+                });
+                navigate('/login');
+                console.log(user);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                console.log(errorCode);
+                if (errorCode === "auth/email-already-in-use") {
+                    return Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Email is Already being Used!'
+                    })
+                }
+            });
     }
 
 
