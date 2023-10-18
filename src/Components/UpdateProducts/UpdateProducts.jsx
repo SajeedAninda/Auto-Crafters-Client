@@ -118,7 +118,7 @@ const UpdateProducts = () => {
                     </div>
 
                     <div class="space-x-4 mt-8 flex justify-center">
-                        <button type="submit" class="py-3 px-5 bg-[#111230] text-white rounded hover:bg-[#5e5f92]">Update Product</button>
+                        <button type="submit" class="py-3 px-5 bg-[#111230] text-white rounded hover:bg-[#5e5f92]">Submit</button>
                     </div>
                 </form>
             </div>

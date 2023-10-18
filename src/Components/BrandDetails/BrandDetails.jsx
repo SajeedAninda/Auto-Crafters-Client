@@ -89,8 +89,10 @@ let BrandDetails = () => {
                                             <span className="font-bold">Price: ${products.productPrice}/=</span>
                                         </p>
 
-                                        <div className="text-xs">
-                                            <button type="button" className="border border-[#111230] text-[#111230] rounded-md px-5 py-3 m-2 transition duration-300 ease select-none hover:bg-gray-900 hover:text-white focus:outline-none focus:shadow-outline">Details</button>
+                                        <div className="text-md font-bold">
+                                            <Link to={`/productDetails/${products._id}`}>
+                                                <button type="button" className="border border-[#111230] text-[#111230] rounded-md px-5 py-3 m-2 transition duration-300 ease select-none hover:bg-gray-900 hover:text-white focus:outline-none focus:shadow-outline">Details</button>
+                                            </Link>
 
                                             <Link to={`/updateProducts/${products._id}`}>
                                                 <button type="button" className="border border-[#111230] text-[#111230] rounded-md px-5 py-3 m-2 transition duration-300 ease select-none hover:bg-gray-900 hover:text-white focus:outline-none focus:shadow-outline">Update</button>
