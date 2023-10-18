@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -6,8 +6,20 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import "./brandDetails.css"
 
-const BrandDetails = () => {
+let BrandDetails = () => {
     let brandData = useLoaderData();
+    let [products, setProducts] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/products")
+            .then(res => res.json())
+            .then(data => setProducts(data));
+    }, [])
+    let brandNameLower = brandData.brand_name.toLowerCase();
+    let targetedProducts = products.filter((product) =>
+        product.brand.toLowerCase() === brandNameLower
+    );
+
+
     return (
         <div className='detailsBg'>
             <div className='w-[90%] mx-auto text-center py-12'>
@@ -35,6 +47,12 @@ const BrandDetails = () => {
                     </SwiperSlide>
                 </Swiper>
             </div>
+            {
+                targetedProducts.map(product => 
+                <h1 className='text-[#111230] text-5xl pb-12 font-bold'>
+                    {product.brand}
+                </h1>)
+            }
         </div>
     );
 };
