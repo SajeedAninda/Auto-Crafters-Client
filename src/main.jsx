@@ -12,6 +12,7 @@ import Register from './Components/Register/Register.jsx';
 import AuthenticationProvider from './Components/Authentication/AuthenticationProvider.jsx';
 import BrandDetails from './Components/BrandDetails/BrandDetails.jsx';
 import AddProducts from './Components/AddProducts/AddProducts.jsx';
+import UpdateProducts from './Components/UpdateProducts/UpdateProducts.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
         path: "/brandDetails/:id",
         loader: ({ params }) => fetch(`http://localhost:5000/brand/${params.id}`),
         element: <BrandDetails></BrandDetails>,
+      },
+      {
+        path: "/updateProducts/:id",
+        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
+        element: <UpdateProducts></UpdateProducts>,
       },
     ],
   },
