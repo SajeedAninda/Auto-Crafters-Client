@@ -1,10 +1,34 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import "./productdetails.css"
+import Swal from 'sweetalert2';
 
 const ProductDetails = () => {
     let productDetailedData = useLoaderData();
     let { productName, brand, imgUrl, productPrice, productType, productDescription, rating } = productDetailedData;
+
+    let handleAddToCart = (id) => {
+        let cart = { productName, brand, imgUrl, productPrice, productType, productDescription, rating };
+        fetch("http://localhost:5000/cart", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(cart),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire(
+                        'Good job!',
+                        'Product Added to Cart!',
+                        'success'
+                      )
+                }
+            });
+    }
+
     return (
         <div className='text-left'>
             <div class="detailsBg py-16">
@@ -16,7 +40,7 @@ const ProductDetails = () => {
                             </div>
                             <div class="flex -mx-2 mb-4 mt-4">
                                 <div class="w-full px-2">
-                                    <button class="w-full brandNameBg text-white py-3 px-4 rounded-full font-bold hover:bg-[#111230] ">Add to Cart</button>
+                                    <button onClick={handleAddToCart} class="w-full brandNameBg text-white py-3 px-4 rounded-full font-bold hover:bg-[#111230] ">Add to Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +66,7 @@ const ProductDetails = () => {
                                     <span class="font-bold text-xl text-[#111230] mr-2">
                                         Price:
                                     </span>
-                                    <span class="text-[#111230] text-lg"><span className='capitalize'>{brand}</span> has set the price of <span className='capitalize'>{productName}</span> at <span className='font-bold'>{productPrice} US Dollars</span>. The price may vary from region to region.</span>
+                                    <span class="text-[#111230] text-lg"><span className='capitalize'>{brand}</span> has set the price of <span className='capitalize'>{productName}</span> at <span className='font-bold'>{productPrice}$</span>. The price may vary from region to region.</span>
                                 </div>
                             </div>
                             <div>
