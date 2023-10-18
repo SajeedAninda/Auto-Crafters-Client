@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import './cart.css';
+import Swal from 'sweetalert2';
 
 const Cart = () => {
     const [cartData, setCartData] = useState([]);
@@ -12,6 +12,26 @@ const Cart = () => {
             .then((data) => setCartData(data))
             .catch((error) => console.error('Error fetching data:', error));
     }, []);
+
+    let handleDelete = (id) => {
+        fetch(`http://localhost:5000/cart/${id}`, {
+            method: "DELETE",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    Swal.fire(
+                        'Good job!',
+                        'Product Deleted From Cart!',
+                        'success'
+                    )
+                }
+            });
+        let remainingCartData = cartData.filter(cart => cart._id !== id);
+        setCartData(remainingCartData);
+    }
+
 
     return (
         <div className="cartBg">
@@ -49,6 +69,7 @@ const Cart = () => {
                                         </p>
                                         <div className="text-md font-bold">
                                             <button
+                                                onClick={() => handleDelete(cart._id)}
                                                 type="button"
                                                 className="border border-[#111230] text-[#111230] rounded-md px-5 py-3 mt-4 transition duration-300 ease select-none hover:bg-gray-900 hover:text-white focus:outline-none focus:shadow-outline"
                                             >
