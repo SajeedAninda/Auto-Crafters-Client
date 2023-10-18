@@ -13,12 +13,12 @@ import car11 from "../../assets/cars/car11.jpg";
 import car12 from "../../assets/cars/car12.jpg";
 import "./gallery.css";
 
-const CarGallery = () => {
+const Gallery = () => {
     return (
         <div className='galleryBg'>
             <div className='w-[90%] pb-12 mx-auto '>
                 <div>
-                    <h1 className='text-5xl pt-12 pb-6 text-center text-white font-bold'>Car Gallery</h1>
+                    <h1 className='text-5xl pt-12 pb-6 text-center text-white font-bold'>Gallery</h1>
                 </div>
                 <div className='py-6'>
                     <div class="container mx-auto px-5 py-2 lg:px-32">
@@ -115,4 +115,4 @@ const CarGallery = () => {
     );
 };
 
-export default CarGallery;
+export default Gallery;

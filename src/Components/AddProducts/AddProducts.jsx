@@ -64,7 +64,7 @@ const AddProducts = () => {
                         <select class="peer h-full w-full rounded-[7px] border border-[#111230] border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-[#111230]  outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-[#111230] placeholder-shown:border-t-[#111230]  empty:!bg-red-500 focus:border-2 focus:border-[#111230] focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
                             <option value="bmw">BMW</option>
                             <option value="ford">Ford</option>
-                            <option value="mercedez">Mercedez</option>
+                            <option value="mercedes">Mercedes</option>
                             <option value="tesla">Tesla</option>
                             <option value="toyota">Toyota</option>
                             <option value="honda">Honda</option>

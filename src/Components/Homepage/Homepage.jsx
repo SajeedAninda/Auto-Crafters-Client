@@ -1,8 +1,8 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import BrandIntro from '../Brand Intro/BrandIntro';
-import CarGallery from '../CarGallery/CarGallery';
 import AffiliatedBrand from '../Affiliated/AffiliatedBrand';
+import Gallery from '../CarGallery/Gallery';
 
 const Homepage = () => {
     return (
@@ -10,7 +10,7 @@ const Homepage = () => {
             <Banner></Banner>
             <AffiliatedBrand></AffiliatedBrand>
             <BrandIntro></BrandIntro>
-            <CarGallery></CarGallery>
+            <Gallery></Gallery>
         </div>
     );
 };
