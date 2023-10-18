@@ -10,6 +10,7 @@ import Homepage from './Components/Homepage/Homepage.jsx';
 import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
 import AuthenticationProvider from './Components/Authentication/AuthenticationProvider.jsx';
+import BrandDetails from './Components/BrandDetails/BrandDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/brandDetails/:id",
+        loader: ({ params }) => fetch(`http://localhost:5000/brand/${params.id}`),
+        element: <BrandDetails></BrandDetails>,
       },
     ],
   },
