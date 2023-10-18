@@ -78,7 +78,7 @@ let BrandDetails = () => {
                                         <p className="pt-4 text-2xl font-bold">{products.productName}</p>
                                         <hr className="hr-text" data-content="" />
                                         <div className="text-md flex justify-between px-4 my-2">
-                                            <span className="font-bold">{brandData.brand_name} | {products.productType}</span>
+                                            <span className="font-bold uppercase">{products.brand} | {products.productType}</span>
                                             <span className="font-bold"></span>
                                         </div>
                                         <p className="hidden md:block px-4 my-4 text-sm text-left">{products.productDescription}</p>

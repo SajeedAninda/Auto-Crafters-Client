@@ -14,6 +14,7 @@ import BrandDetails from './Components/BrandDetails/BrandDetails.jsx';
 import AddProducts from './Components/AddProducts/AddProducts.jsx';
 import UpdateProducts from './Components/UpdateProducts/UpdateProducts.jsx';
 import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
+import Cart from './Components/Cart/Cart.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/cart",
+        element: <Cart></Cart>,
       },
       {
         path: "/brandDetails/:id",
