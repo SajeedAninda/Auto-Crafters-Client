@@ -55,7 +55,7 @@ const AddProducts = () => {
     }
 
     return (
-        <div className='addBg text-left'>
+        <div className='addBgz text-left'>
             <div class="p-8 w-[90%] mx-auto">
                 <h1 class="font-medium text-4xl text-center text-[#111230]">Add Your Desired Product</h1>
                 <p class="text-[#111230] mt-6 text-center">Please Input details of the product to add it in the product details page</p>

@@ -4,7 +4,7 @@ import logo from "../../assets/logo.jpeg";
 const Footer = () => {
     return (
         <div>
-            <footer className="bg-white lg:grid lg:grid-cols-5">
+            <footer className="bg-white dark:bg-slate-950 lg:grid lg:grid-cols-5">
                 <div className="relative block h-22 lg:col-span-2 lg:h-full">
                     <img
                         src={logo}
@@ -17,19 +17,19 @@ const Footer = () => {
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
                         <div>
                             <p>
-                                <span className="text-xs uppercase tracking-wide text-gray-500">
+                                <span className="text-xs uppercase tracking-wide text-gray-500 dark:text-white ">
                                     Call us
                                 </span>
 
                                 <a
                                     href="#"
-                                    className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl"
+                                    className="block text-2xl font-medium text-gray-900 dark:text-white  hover:opacity-75 sm:text-3xl"
                                 >
                                     0123456789
                                 </a>
                             </p>
 
-                            <ul className="mt-8 space-y-1 text-sm text-gray-700">
+                            <ul className="mt-8 space-y-1 text-sm text-gray-700 dark:text-white ">
                                 <li>Monday to Friday: 10am - 5pm</li>
                                 <li>Weekend: 10am - 3pm</li>
                             </ul>
@@ -40,7 +40,7 @@ const Footer = () => {
                                         href="/"
                                         rel="noreferrer"
                                         target="_blank"
-                                        className="text-gray-700 transition hover:opacity-75"
+                                        className="text-gray-700 dark:text-white  transition hover:opacity-75"
                                     >
                                         <span className="sr-only">Facebook</span>
 
@@ -64,7 +64,7 @@ const Footer = () => {
                                         href="/"
                                         rel="noreferrer"
                                         target="_blank"
-                                        className="text-gray-700 transition hover:opacity-75"
+                                        className="text-gray-700 dark:text-white  transition hover:opacity-75"
                                     >
                                         <span className="sr-only">Instagram</span>
 
@@ -88,7 +88,7 @@ const Footer = () => {
                                         href="/"
                                         rel="noreferrer"
                                         target="_blank"
-                                        className="text-gray-700 transition hover:opacity-75"
+                                        className="text-gray-700 dark:text-white  transition hover:opacity-75"
                                     >
                                         <span className="sr-only">Twitter</span>
 
@@ -110,7 +110,7 @@ const Footer = () => {
                                         href="/"
                                         rel="noreferrer"
                                         target="_blank"
-                                        className="text-gray-700 transition hover:opacity-75"
+                                        className="text-gray-700 dark:text-white  transition hover:opacity-75"
                                     >
                                         <span className="sr-only">GitHub</span>
 
@@ -134,7 +134,7 @@ const Footer = () => {
                                         href="/"
                                         rel="noreferrer"
                                         target="_blank"
-                                        className="text-gray-700 transition hover:opacity-75"
+                                        className="text-gray-700 dark:text-white  transition hover:opacity-75"
                                     >
                                         <span className="sr-only">Dribbble</span>
 
@@ -158,23 +158,23 @@ const Footer = () => {
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                            
                             <div>
-                                <p className="font-medium text-gray-900">Auto Crafters</p>
+                                <p className="font-medium text-gray-900 dark:text-white ">Auto Crafters</p>
 
                                 <ul className="mt-6 space-y-4 text-sm">
                                     <li>
-                                        <a href="#" className="text-gray-700 transition hover:opacity-75">
+                                        <a href="#" className="text-gray-700 dark:text-white  transition hover:opacity-75">
                                             About
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="#" className="text-gray-700 transition hover:opacity-75">
+                                        <a href="#" className="text-gray-700 dark:text-white  transition hover:opacity-75">
                                             Meet the Team
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="#" className="text-gray-700 transition hover:opacity-75">
+                                        <a href="#" className="text-gray-700 dark:text-white  transition hover:opacity-75">
                                             Accounts Review
                                         </a>
                                     </li>
@@ -187,25 +187,25 @@ const Footer = () => {
                         <div className="sm:flex sm:items-center sm:justify-between">
                             <ul className="flex flex-wrap justify-center gap-4 text-xs">
                                 <li>
-                                    <a href="#" className="text-gray-500 transition hover:opacity-75">
+                                    <a href="#" className="text-gray-500 dark:text-white  transition hover:opacity-75">
                                         Terms & Conditions
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" className="text-gray-500 transition hover:opacity-75">
+                                    <a href="#" className="text-gray-500 dark:text-white  transition hover:opacity-75">
                                         Privacy Policy
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" className="text-gray-500 transition hover:opacity-75">
+                                    <a href="#" className="text-gray-500 dark:text-white  transition hover:opacity-75">
                                         Cookies
                                     </a>
                                 </li>
                             </ul>
 
-                            <p className="mt-8 text-xs text-gray-500 sm:mt-0">
+                            <p className="mt-8 text-xs text-gray-500 dark:text-white  sm:mt-0">
                                 &copy; 2023. Auto Crafters. All rights reserved.
                             </p>
                         </div>
