@@ -36,6 +36,11 @@ const AddProducts = () => {
                         'Product Added Successfully!',
                         'success'
                     )
+                    e.target.productname.value = "";
+                    e.target.imgurl.value = "";
+                    e.target.price.value = "";
+                    e.target.type.value = "";
+                    e.target.description.value = "";
                 }
             });
     };
