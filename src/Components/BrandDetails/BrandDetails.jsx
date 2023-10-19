@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import "./brandDetails.css"
+import { Rating } from '@mui/material';
 
 let BrandDetails = () => {
     let brandData = useLoaderData();
@@ -83,10 +84,10 @@ let BrandDetails = () => {
                                         </div>
                                         <p className="hidden md:block px-4 my-4 text-sm text-left">{products.productDescription}</p>
 
-                                        <p className="flex text-md px-4 my-2">
-                                            Rating: {products.rating}/5
-                                            <span className="font-bold px-2">|</span>
-                                            <span className="font-bold">Price: ${products.productPrice}/=</span>
+                                        <p className="flex items-center text-md px-4 my-2">
+                                            Rating: <Rating name="read-only" value={products.rating} readOnly />
+                                            <span className="font-bold px-2">||</span>
+                                            <p className="font-bold block">Price: ${products.productPrice}/=</p>
                                         </p>
 
                                         <div className="text-md font-bold">

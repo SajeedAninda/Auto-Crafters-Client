@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import './cart.css';
 import Swal from 'sweetalert2';
+import { Rating } from '@mui/material';
 
 const Cart = () => {
     const [cartData, setCartData] = useState([]);
@@ -62,10 +63,10 @@ const Cart = () => {
                                             <span className="font-bold"></span>
                                         </div>
                                         <p className="hidden md:block px-4 my-4 text-sm text-left">{cart.productDescription}</p>
-                                        <p className="flex text-md px-4 my-2">
-                                            Rating: {cart.rating}/5
-                                            <span className="font-bold px-2">|</span>
-                                            <span className="font-bold">Price: ${cart.productPrice}/=</span>
+                                        <p className="flex items-center text-md px-4 my-2">
+                                            Rating: <Rating name="read-only" value={cart.rating} readOnly />
+                                            <span className="font-bold px-2">||</span>
+                                            <p className="font-bold block">Price: ${cart.productPrice}/=</p>
                                         </p>
                                         <div className="text-md font-bold">
                                             <button

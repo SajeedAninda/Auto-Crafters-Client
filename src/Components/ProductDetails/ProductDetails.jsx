@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import "./productdetails.css"
 import Swal from 'sweetalert2';
+import { Rating } from '@mui/material';
 
 const ProductDetails = () => {
     let productDetailedData = useLoaderData();
@@ -19,12 +20,12 @@ const ProductDetails = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                if(data.insertedId){
+                if (data.insertedId) {
                     Swal.fire(
                         'Good job!',
                         'Product Added to Cart!',
                         'success'
-                      )
+                    )
                 }
             });
     }
@@ -42,6 +43,11 @@ const ProductDetails = () => {
                                 <div class="w-full px-2">
                                     <button onClick={handleAddToCart} class="w-full brandNameBg text-white py-3 px-4 rounded-full font-bold hover:bg-[#111230] ">Add to Cart</button>
                                 </div>
+                            </div>
+                            <div>
+                                <p className="flex items-center justify-center text-md px-8 my-2">
+                                    <Rating name="read-only" value={rating}  size='large' readOnly />
+                                </p>
                             </div>
                         </div>
                         <div class="md:flex-1 px-4">

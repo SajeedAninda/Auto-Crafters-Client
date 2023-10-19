@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import "./addproducts.css"
 import Swal from 'sweetalert2';
+// import { Rating } from '@smastrom/react-rating'
+// import '@smastrom/react-rating/style.css'
+import Rating from '@mui/material/Rating';
 
 const AddProducts = () => {
     let [brand, setBrand] = useState("bmw");
-    let [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(0);
+
 
     let handleAdd = (e) => {
         e.preventDefault();
@@ -101,7 +105,7 @@ const AddProducts = () => {
                             <input type="text" name="description" id="name" class="bg-white border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="Give a short Description of your Product" required />
                         </div>
                     </div>
-                    <div class="relative h-10 w-72 min-w-[200px] mt-8">
+                    {/* <div class="relative h-10 w-72 min-w-[200px] mt-8">
                         <select onChange={handleRatingChange} value={rating} name="rating" class="peer h-full w-full rounded-[7px] border border-[#111230] border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-[#111230]  outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-[#111230] placeholder-shown:border-t-[#111230]  empty:!bg-red-500 focus:border-2 focus:border-[#111230] focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-[#111230] ">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -112,6 +116,18 @@ const AddProducts = () => {
                         <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-sm font-medium leading-tight text-[#111230] transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-[#111230]  before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-[#111230] after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-[#111230]  peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-[#111230] peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-[#111230] peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-[#111230] peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                             Rating in Stars
                         </label>
+                    </div> */}
+                    <div className='mt-8 space-y-2'>
+                        <label for="name" class="text-sm text-[#111230] block mb-1 font-medium">Rating:</label>
+                        {/* <Rating style={{ maxWidth: 150 }} value={rating} onChange={setRating} /> */}
+                        <Rating
+                            size='large'
+                            name="simple-controlled"
+                            value={rating}
+                            onChange={(event, newRating) => {
+                                setRating(newRating);
+                            }}
+                        />
                     </div>
 
                     <div class="space-x-4 mt-8 flex justify-center">
