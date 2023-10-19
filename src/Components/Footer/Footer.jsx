@@ -185,7 +185,7 @@ const Footer = () => {
 
                     <div className="mt-12 border-t border-gray-100 pt-12">
                         <div className="sm:flex sm:items-center sm:justify-between">
-                            <ul className="flex flex-wrap gap-4 text-xs">
+                            <ul className="flex flex-wrap justify-center gap-4 text-xs">
                                 <li>
                                     <a href="#" className="text-gray-500 transition hover:opacity-75">
                                         Terms & Conditions

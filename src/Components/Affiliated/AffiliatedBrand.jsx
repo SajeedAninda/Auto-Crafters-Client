@@ -12,7 +12,7 @@ const AffiliatedBrand = () => {
 
     return (
         <div className='flex justify-center items-center affiliateBG'>
-            <div className='flex justify-between items-center w-[90%]'>
+            <div className='flex flex-col md:flex-row justify-between items-center w-[90%]'>
                 <div>
                     <h1 className='text-5xl pt-12 pb-6 text-center text-[#111230] font-bold'>Affiliated Brands</h1>
                 </div>
@@ -25,7 +25,7 @@ const AffiliatedBrand = () => {
                                     <img className='w-[200px]' src={data.brand_image} alt="" />
                                 </div>
                                 <div flex-1>
-                                    <h3 className='text-3xl  font-bold'>{data.brand_name}</h3>
+                                    <h3 className='text-xl md:text-3xl  font-bold'>{data.brand_name}</h3>
                                 </div>
                             </Link>)
                     }

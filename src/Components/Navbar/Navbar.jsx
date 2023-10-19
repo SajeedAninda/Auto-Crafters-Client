@@ -28,8 +28,8 @@ const Navbar = () => {
 
 
     return (
-        <div className='h-[15vh] bg-[#111230] flex items-center'>
-            <div className='flex justify-between items-center w-[90%] mx-auto'>
+        <div className='h-fit lg:h-[15vh] bg-[#111230] flex items-center'>
+            <div className='flex flex-col gap-5 py-6 lg:flex-row lg:gap-0 lg:py-0 justify-between items-center w-[90%] mx-auto'>
                 <div className='flex items-center flex-1'>
                     <Link>
                         <div className='flex items-center flex-1'>

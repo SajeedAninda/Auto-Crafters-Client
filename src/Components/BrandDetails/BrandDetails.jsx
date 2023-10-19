@@ -30,20 +30,20 @@ let BrandDetails = () => {
                 </h1>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                     <SwiperSlide>
-                        <div className='h-[80vh] flex justify-center items-center flex-col'>
+                        <div className='h-fit lg:h-[80vh] flex justify-center items-center flex-col'>
                             <img className='w-full object-contain' src={brandData.slider_img1} alt="" />
                         </div>
                     </SwiperSlide>
 
 
                     <SwiperSlide>
-                        <div className='h-[80vh] flex justify-center items-center flex-col'>
+                        <div className='h-fit lg:h-[80vh] flex justify-center items-center flex-col'>
                             <img className='w-full object-contain' src={brandData.slider_img2} alt="" />
                         </div>
                     </SwiperSlide>
 
                     <SwiperSlide>
-                        <div className='h-[80vh] flex justify-center items-center flex-col'>
+                        <div className='h-fit lg:h-[80vh] flex justify-center items-center flex-col'>
                             <img className='w-full object-contain' src={brandData.slider_img3} alt="" />
                         </div>
                     </SwiperSlide>
@@ -64,7 +64,7 @@ let BrandDetails = () => {
                 {
                     targetedProducts.map(products =>
                         <div className="grid grid-cols-1 place-items-center font-mono mb-12">
-                            <div className="bg-white rounded-md shadow-lg">
+                            <div className="bg-white rounded-md shadow-lg h-fit w-fit">
                                 <div className="md:flex px-4 leading-none max-w-4xl">
                                     <div className="flex-none ">
                                         <img
@@ -82,11 +82,11 @@ let BrandDetails = () => {
                                             <span className="font-bold uppercase">{products.brand} | {products.productType}</span>
                                             <span className="font-bold"></span>
                                         </div>
-                                        <p className="hidden md:block px-4 my-4 text-sm text-left">{products.productDescription}</p>
+                                        <p className="px-4 my-4 text-sm text-left">{products.productDescription}</p>
 
-                                        <p className="flex items-center text-md px-4 my-2">
+                                        <p className="flex flex-col lg:flex-row items-center text-md px-4 my-2">
                                             Rating: <Rating name="read-only" value={products.rating} readOnly />
-                                            <span className="font-bold px-2">||</span>
+                                            <span className="font-bold px-2 hidden lg:block">||</span>
                                             <p className="font-bold block">Price: ${products.productPrice}/=</p>
                                         </p>
 

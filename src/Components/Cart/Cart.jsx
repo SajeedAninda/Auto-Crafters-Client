@@ -49,7 +49,7 @@ const Cart = () => {
                 ) : (
                     userSpecificData.map((cart) => (
                         <div className="grid grid-cols-1 place-items-center font-mono" key={cart._id}>
-                            <div className="bg-white rounded-md shadow-lg mb-12">
+                            <div className="bg-white rounded-md shadow-lg mb-12 py-5 h-fit w-fit">
                                 <div className="md:flex px-4 leading-none max-w-4xl">
                                     <div className="flex-none">
                                         <img
@@ -66,10 +66,10 @@ const Cart = () => {
                                             <span className="font-bold capitalize">{cart.brand} | {cart.productType}</span>
                                             <span className="font-bold"></span>
                                         </div>
-                                        <p className="hidden md:block px-4 my-4 text-sm text-left">{cart.productDescription}</p>
-                                        <p className="flex items-center text-md px-4 my-2">
+                                        <p className="px-4 my-4 text-sm text-left">{cart.productDescription}</p>
+                                        <p className="flex flex-col lg:flex-row items-center text-md px-4 my-2">
                                             Rating: <Rating name="read-only" value={cart.rating} readOnly />
-                                            <span className="font-bold px-2">||</span>
+                                            <span className="hidden lg:block font-bold px-2">||</span>
                                             <p className="font-bold block">Price: ${cart.productPrice}/=</p>
                                         </p>
                                         <div className="text-md font-bold">
