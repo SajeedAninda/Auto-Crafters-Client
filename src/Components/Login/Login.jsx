@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import "./login.css"
 import { AuthContext } from '../Authentication/AuthenticationProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
     let { signIn, googleLogin, gitLogin } = useContext(AuthContext);
+    let location = useLocation();
     let navigate = useNavigate();
 
     let handleGoogleLogin = () => {
@@ -18,7 +19,7 @@ const Login = () => {
                     'Login Successful!',
                     'success'
                 )
-                navigate("/");
+                navigate(location?.state ? location.state : '/');
             }).catch((error) => {
                 console.log(error);
             });
@@ -34,7 +35,7 @@ const Login = () => {
                     'Login Successful!',
                     'success'
                 )
-                navigate("/");
+                navigate(location?.state ? location.state : '/');
             }).catch((error) => {
                 console.log(error);
             });
@@ -53,7 +54,7 @@ const Login = () => {
                     'Login Successful!',
                     'success'
                 )
-                navigate("/");
+                navigate(location?.state ? location.state : '/');
             })
             .catch((error) => {
                 let errorCode = error.code;

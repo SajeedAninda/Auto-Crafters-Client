@@ -50,7 +50,7 @@ const Navbar = () => {
                             isPending ? "pending" : isActive ? "font-bold underline" : ""
                         }
                     >
-                        Cart
+                        My Cart
                     </NavLink>
 
 
