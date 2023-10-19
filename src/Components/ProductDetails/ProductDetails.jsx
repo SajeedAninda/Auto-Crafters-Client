@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import "./productdetails.css"
 import Swal from 'sweetalert2';
 import { Rating } from '@mui/material';
+import { AuthContext } from '../Authentication/AuthenticationProvider';
 
 const ProductDetails = () => {
     let productDetailedData = useLoaderData();
     let { productName, brand, imgUrl, productPrice, productType, productDescription, rating } = productDetailedData;
+    let loggedInUser = useContext(AuthContext);
+    let userEmail = loggedInUser.loggedInUser.email;
 
     let handleAddToCart = (id) => {
-        let cart = { productName, brand, imgUrl, productPrice, productType, productDescription, rating };
+        let cart = { productName, brand, imgUrl, productPrice, productType, productDescription, rating, userEmail };
         fetch("http://localhost:5000/cart", {
             method: "POST",
             headers: {
@@ -46,7 +49,7 @@ const ProductDetails = () => {
                             </div>
                             <div>
                                 <p className="flex items-center justify-center text-md px-8 my-2">
-                                    <Rating name="read-only" value={rating}  size='large' readOnly />
+                                    <Rating name="read-only" value={rating} size='large' readOnly />
                                 </p>
                             </div>
                         </div>

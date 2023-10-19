@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import './cart.css';
 import Swal from 'sweetalert2';
 import { Rating } from '@mui/material';
+import { AuthContext } from '../Authentication/AuthenticationProvider';
 
 const Cart = () => {
     const [cartData, setCartData] = useState([]);
+    let loggedInUser = useContext(AuthContext);
+    let userSpecificEmail = loggedInUser.loggedInUser.email;
 
     useEffect(() => {
         fetch('http://localhost:5000/cart')
             .then((res) => res.json())
             .then((data) => setCartData(data))
-            .catch((error) => console.error('Error fetching data:', error));
+            .catch((error) => console.error(error));
     }, []);
+    let userSpecificData = cartData.filter(cart => cart.userEmail == userSpecificEmail);
 
     let handleDelete = (id) => {
         fetch(`http://localhost:5000/cart/${id}`, {
@@ -29,7 +33,7 @@ const Cart = () => {
                     )
                 }
             });
-        let remainingCartData = cartData.filter(cart => cart._id !== id);
+        let remainingCartData = userSpecificData.filter(cart => cart._id !== id);
         setCartData(remainingCartData);
     }
 
@@ -38,12 +42,12 @@ const Cart = () => {
         <div className="cartBg">
             <div className="w-[90%] mx-auto">
                 <h1 className="text-[#111230] text-5xl py-12 font-bold">Cart</h1>
-                {cartData.length === 0 ? (
+                {userSpecificData.length === 0 ? (
                     <div className="w-[90%] mx-auto">
                         <h1 className="text-[#111230] text-5xl py-12 font-bold">No Products in Cart</h1>
                     </div>
                 ) : (
-                    cartData.map((cart) => (
+                    userSpecificData.map((cart) => (
                         <div className="grid grid-cols-1 place-items-center font-mono" key={cart._id}>
                             <div className="bg-white rounded-md shadow-lg mb-12">
                                 <div className="md:flex px-4 leading-none max-w-4xl">
