@@ -6,7 +6,7 @@ import Rating from '@mui/material/Rating';
 const UpdateProducts = () => {
     let productData = useLoaderData();
     let [brand, setBrand] = useState(productData.brand);
-    let [rating, setRating] = useState(0);
+    let [rating, setRating] = useState(productData.rating);
     let navigate = useNavigate();
 
     let handleUpdate = (e) => {
