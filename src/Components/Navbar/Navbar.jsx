@@ -29,7 +29,7 @@ const Navbar = () => {
                     <NavLink
                         to={"/"}
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-bold underline" : ""
+                            isPending ? "pending" : isActive ? "font-semibold bg-white py-2 px-3 rounded-md text-[#111230]" : ""
                         }
                     >
                         Home
@@ -38,7 +38,7 @@ const Navbar = () => {
                     <NavLink
                         to={"/addProducts"}
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-bold underline" : ""
+                            isPending ? "pending" : isActive ? "font-semibold bg-white py-2 px-3 rounded-md text-[#111230]" : ""
                         }
                     >
                         Add Products
@@ -48,7 +48,7 @@ const Navbar = () => {
                     <NavLink
                         to={"/cart"}
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-bold underline" : ""
+                            isPending ? "pending" : isActive ? "font-semibold bg-white py-2 px-3 rounded-md text-[#111230]" : ""
                         }
                     >
                         My Cart
