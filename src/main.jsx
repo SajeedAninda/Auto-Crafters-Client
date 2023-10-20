@@ -16,10 +16,12 @@ import UpdateProducts from './Components/UpdateProducts/UpdateProducts.jsx';
 import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
 import Cart from './Components/Cart/Cart.jsx';
 import PrivateRoute from './Components/Authentication/PrivateRoute.jsx';
+import ErrorElement from './ErrorPage/ErrorElement.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorElement></ErrorElement>,
     element: <App></App>,
     children: [
       {
