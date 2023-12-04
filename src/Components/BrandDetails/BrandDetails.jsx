@@ -10,16 +10,26 @@ import { Rating } from '@mui/material';
 let BrandDetails = () => {
     let brandData = useLoaderData();
     let [products, setProducts] = useState([]);
+    let [loading, setLoading] = useState(true);
+
     useEffect(() => {
         fetch("https://auto-crafters-server.vercel.app/products")
             .then(res => res.json())
-            .then(data => setProducts(data));
-    }, [])
+            .then(data => {
+                setProducts(data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                setLoading(false);
+            });
+    }, []);
+
     let brandNameLower = brandData.brand_name.toLowerCase();
     let targetedProducts = products.filter((product) =>
         product.brand.toLowerCase() === brandNameLower
     );
-    console.log(targetedProducts);
+    // console.log(targetedProducts);
 
 
     return (
@@ -51,17 +61,25 @@ let BrandDetails = () => {
             </div>
 
             <div className='w-[90%] mx-auto pt-6 pb-12'>
-                {targetedProducts.length > 0 ?
+                {loading ? (
+                    <div className='flex justify-center items-center'>
+                        <span className="loading loading-spinner loading-lg"></span>
+                    </div>
+                ) : targetedProducts.length > 0 ? (
                     <h1 className='text-[#111230] text-center text-5xl pb-12 font-bold'>
                         Available Products
                     </h1>
-                    :
+                ) : (
                     <h1 className='text-[#111230] text-center text-5xl pb-12 font-bold'>
                         No Products Available
                     </h1>
-                }
+                )}
 
-                {
+                {loading ? (
+                    <div className='flex justify-center items-center'>
+                        <span className="loading loading-spinner loading-lg"></span>
+                    </div>
+                ) : (
                     targetedProducts.map(products =>
                         <div className="grid grid-cols-1 place-items-center font-mono mb-12">
                             <div className="bg-white rounded-md shadow-lg h-fit w-fit">
@@ -105,11 +123,9 @@ let BrandDetails = () => {
                             </div>
                         </div>
                     )
-                }
-
-
-
+                )}
             </div>
+
         </div>
     );
 };
