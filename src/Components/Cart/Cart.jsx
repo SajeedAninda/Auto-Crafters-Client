@@ -46,16 +46,16 @@ const Cart = () => {
     }
 
     return (
-        <div className="cartBg">
+        <div className="cartBg dark:bg-gray-950">
             <div className="w-[90%] mx-auto">
-                <h1 className="text-[#111230] text-5xl py-12 font-bold">Cart</h1>
+                <h1 className="text-[#111230] text-5xl py-12 font-bold dark:text-white">Cart</h1>
                 {loading ? (
                     <div className='flex justify-center items-center py-12'>
                         <span className="loading loading-spinner loading-lg"></span>
                     </div>
                 ) : userSpecificData.length === 0 ? (
                     <div className="w-[90%] mx-auto">
-                        <h1 className="text-[#111230] text-5xl py-12 font-bold">No Products in Cart</h1>
+                        <h1 className="text-[#111230] text-5xl py-12 font-bold dark:text-white">No Products in Cart</h1>
                     </div>
                 ) : (
                     userSpecificData.map((cart) => (
