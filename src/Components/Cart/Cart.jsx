@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-
 import './cart.css';
 import Swal from 'sweetalert2';
 import { Rating } from '@mui/material';
@@ -7,16 +6,24 @@ import { AuthContext } from '../Authentication/AuthenticationProvider';
 
 const Cart = () => {
     const [cartData, setCartData] = useState([]);
+    const [loading, setLoading] = useState(true); // New loading state
     let loggedInUser = useContext(AuthContext);
     let userSpecificEmail = loggedInUser.loggedInUser.email;
 
     useEffect(() => {
         fetch('https://auto-crafters-server.vercel.app/cart')
             .then((res) => res.json())
-            .then((data) => setCartData(data))
-            .catch((error) => console.error(error));
+            .then((data) => {
+                setCartData(data);
+                setLoading(false); // Set loading to false after data is loaded
+            })
+            .catch((error) => {
+                console.error(error);
+                setLoading(false); // Set loading to false in case of an error
+            });
     }, []);
-    let userSpecificData = cartData.filter(cart => cart.userEmail == userSpecificEmail);
+
+    let userSpecificData = cartData.filter(cart => cart.userEmail === userSpecificEmail);
 
     let handleDelete = (id) => {
         fetch(`https://auto-crafters-server.vercel.app/cart/${id}`, {
@@ -30,19 +37,23 @@ const Cart = () => {
                         'Good job!',
                         'Product Deleted From Cart!',
                         'success'
-                    )
+                    );
                 }
             });
+
         let remainingCartData = userSpecificData.filter(cart => cart._id !== id);
         setCartData(remainingCartData);
     }
-
 
     return (
         <div className="cartBg">
             <div className="w-[90%] mx-auto">
                 <h1 className="text-[#111230] text-5xl py-12 font-bold">Cart</h1>
-                {userSpecificData.length === 0 ? (
+                {loading ? (
+                    <div className='flex justify-center items-center py-12'>
+                        <span className="loading loading-spinner loading-lg"></span>
+                    </div>
+                ) : userSpecificData.length === 0 ? (
                     <div className="w-[90%] mx-auto">
                         <h1 className="text-[#111230] text-5xl py-12 font-bold">No Products in Cart</h1>
                     </div>
