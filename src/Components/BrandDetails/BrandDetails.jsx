@@ -33,9 +33,9 @@ let BrandDetails = () => {
 
 
     return (
-        <div className='detailsBg'>
+        <div className='detailsBg dark:bg-gray-950'>
             <div className='w-[90%] mx-auto text-center py-12'>
-                <h1 className='text-[#111230] text-5xl pb-12 font-bold'>
+                <h1 className='text-[#111230] text-5xl pb-12 font-bold dark:text-white'>
                     {brandData.brand_name}
                 </h1>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
@@ -66,11 +66,11 @@ let BrandDetails = () => {
                         <span className="loading loading-spinner loading-lg"></span>
                     </div>
                 ) : targetedProducts.length > 0 ? (
-                    <h1 className='text-[#111230] text-center text-5xl pb-12 font-bold'>
+                    <h1 className='text-[#111230] text-center text-5xl pb-12 font-bold dark:text-white'>
                         Available Products
                     </h1>
                 ) : (
-                    <h1 className='text-[#111230] text-center text-5xl pb-12 font-bold'>
+                    <h1 className='text-[#111230] text-center text-5xl pb-12 font-bold dark:text-white'>
                         No Products Available
                     </h1>
                 )}
@@ -82,7 +82,7 @@ let BrandDetails = () => {
                 ) : (
                     targetedProducts.map(products =>
                         <div className="grid grid-cols-1 place-items-center font-mono mb-12">
-                            <div className="bg-white rounded-md shadow-lg h-fit w-fit">
+                            <div className="bg-white rounded-md shadow-lg h-fit w-fit dark:bg-slate-400">
                                 <div className="md:flex px-4 leading-none max-w-4xl">
                                     <div className="flex-none ">
                                         <img

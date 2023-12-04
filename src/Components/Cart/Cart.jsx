@@ -60,7 +60,7 @@ const Cart = () => {
                 ) : (
                     userSpecificData.map((cart) => (
                         <div className="grid grid-cols-1 place-items-center font-mono" key={cart._id}>
-                            <div className="bg-white rounded-md shadow-lg mb-12 py-5 h-fit w-fit">
+                            <div className="bg-white rounded-md shadow-lg mb-12 py-5 h-fit w-fit dark:bg-slate-400">
                                 <div className="md:flex px-4 leading-none max-w-4xl">
                                     <div className="flex-none">
                                         <img
