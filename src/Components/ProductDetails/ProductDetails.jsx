@@ -13,7 +13,7 @@ const ProductDetails = () => {
 
     let handleAddToCart = (id) => {
         let cart = { productName, brand, imgUrl, productPrice, productType, productDescription, rating, userEmail };
-        fetch("http://localhost:5000/cart", {
+        fetch("https://auto-crafters-server.vercel.app/cart", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

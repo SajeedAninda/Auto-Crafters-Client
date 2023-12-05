@@ -46,17 +46,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/brandDetails/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/brand/${params.id}`),
+        loader: ({ params }) => fetch(`https://auto-crafters-server.vercel.app/brand/${params.id}`),
         element: <BrandDetails></BrandDetails>,
       },
       {
         path: "/updateProducts/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
+        loader: ({ params }) => fetch(`https://auto-crafters-server.vercel.app/products/${params.id}`),
         element: <PrivateRoute><UpdateProducts></UpdateProducts></PrivateRoute>,
       },
       {
         path: "/productDetails/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
+        loader: ({ params }) => fetch(`https://auto-crafters-server.vercel.app/products/${params.id}`),
         element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
       },
     ],
