@@ -11,7 +11,7 @@ const Cart = () => {
     let userSpecificEmail = loggedInUser.loggedInUser.email;
 
     useEffect(() => {
-        fetch('https://auto-crafters-server.vercel.app/cart')
+        fetch('http://localhost:5000/cart')
             .then((res) => res.json())
             .then((data) => {
                 setCartData(data);
@@ -26,7 +26,7 @@ const Cart = () => {
     let userSpecificData = cartData.filter(cart => cart.userEmail === userSpecificEmail);
 
     let handleDelete = (id) => {
-        fetch(`https://auto-crafters-server.vercel.app/cart/${id}`, {
+        fetch(`http://localhost:5000/cart/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

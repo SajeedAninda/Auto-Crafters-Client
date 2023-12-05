@@ -13,7 +13,7 @@ const ProductDetails = () => {
 
     let handleAddToCart = (id) => {
         let cart = { productName, brand, imgUrl, productPrice, productType, productDescription, rating, userEmail };
-        fetch("https://auto-crafters-server.vercel.app/cart", {
+        fetch("http://localhost:5000/cart", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -29,6 +29,13 @@ const ProductDetails = () => {
                         'Product Added to Cart!',
                         'success'
                     )
+                }
+                if (data.success == false) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Product Exists in Cart!"
+                      });
                 }
             });
     }

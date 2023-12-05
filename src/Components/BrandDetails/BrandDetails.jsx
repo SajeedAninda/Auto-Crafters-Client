@@ -13,7 +13,7 @@ let BrandDetails = () => {
     let [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("https://auto-crafters-server.vercel.app/products")
+        fetch("http://localhost:5000/products")
             .then(res => res.json())
             .then(data => {
                 setProducts(data);

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const AffiliatedBrand = () => {
     let [brandData, setBrandData] = useState([]);
     useEffect(() => {
-        fetch("https://auto-crafters-server.vercel.app/brand")
+        fetch("http://localhost:5000/brand")
             .then(res => res.json())
             .then(data => setBrandData(data));
     }, [])

@@ -19,7 +19,7 @@ const UpdateProducts = () => {
         let product = { productName, brand, imgUrl, productPrice, productType, productDescription, rating };
         console.log(product);
 
-        fetch(`https://auto-crafters-server.vercel.app/products/${productData._id}`, {
+        fetch(`http://localhost:5000/products/${productData._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
