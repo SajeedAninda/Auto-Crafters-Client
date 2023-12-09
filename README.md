@@ -1,5 +1,9 @@
 # Auto-Crafters
 Auto Crafters is the ultimate destination for automotive excellence. The platform is meticulously designed to provide users with a comprehensive and immersive experience in the world of automobiles. This project is divided into two parts: the frontend and the backend. The frontend is built using React.js, while the backend is developed with Express.js and MongoDB for data storage.
+
+## Repo Intro
+This Repository contains the Client Side Codes for the Auto-Crafters-Web App
+
 ## Table of Contents
 
 - [Features](#features)
